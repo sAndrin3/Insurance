@@ -1,11 +1,11 @@
-using System.Security.Claims;
 using Insurance.Data;
 using Insurance.Extension;
 using Insurance.Models;
-using Insurance.Service;
-using Insurance.Service.IService;
+using Insurance.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,40 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Insurance", Version = "v1" });
+        c.AddSecurityDefinition(
+            "token",
+            new OpenApiSecurityScheme
+            {
+                Type = SecuritySchemeType.Http,
+                BearerFormat = "JWT",
+                Scheme = "Bearer",
+                In = ParameterLocation.Header,
+                Name = HeaderNames.Authorization
+            }
+        );
+        c.AddSecurityRequirement(
+            new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "token"
+                        },
+                    },
+                    Array.Empty<string>()
+                }
+            }
+        );
+    }
+);
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAuthorization();
@@ -27,7 +60,7 @@ builder.Services.AddIdentityCore<User>()
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IPolicyInterface, PolicyService>();
+builder.Services.AddScoped<IPolicyService, PolicyService>();
 
 var app = builder.Build();
 
@@ -39,12 +72,6 @@ if (app.Environment.IsDevelopment())
 
     app.ApplyMigrations();
 }
-
-app.MapGet("user/me", async (ClaimsPrincipal claims, AppDbContext context) =>
-{
-    string userId = claims.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-    return await context.Users.FindAsync(userId);
-}).RequireAuthorization();
 
 app.UseHttpsRedirection();
 
