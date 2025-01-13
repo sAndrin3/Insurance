@@ -2,6 +2,8 @@ using System.Security.Claims;
 using Insurance.Data;
 using Insurance.Extension;
 using Insurance.Models;
+using Insurance.Service;
+using Insurance.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +24,10 @@ builder.Services.AddAuthentication()
 builder.Services.AddIdentityCore<User>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddApiEndpoints();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<IPolicyInterface, PolicyService>();
 
 var app = builder.Build();
 

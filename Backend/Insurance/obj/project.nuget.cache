@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jPK/hk0YipmIHPhEpK8k4xE2v5LjDX2Ebr0FG8t7FazBWwNgG1TYEzQ4NHRcBWfAWIBygKTKFXuyPHN3u0QG+w==",
+  "dgSpecHash": "QjjT/sUq6krjzM+w9vFnujptC23s1EKUgWLbsaTxT+OssODaxLtksihhspZifAX9Yfx1N6/vTPC38ABOjJmU5g==",
   "success": true,
   "projectFilePath": "C:\\Development\\Insurance\\Backend\\Insurance\\Insurance.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\SandrineMang'ong'oMa\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\SandrineMang'ong'oMa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\SandrineMang'ong'oMa\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\SandrineMang'ong'oMa\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

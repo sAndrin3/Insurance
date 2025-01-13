@@ -268,3 +268,5 @@ C:\Development\Insurance\Backend\Insurance\obj\Debug\net8.0\Insurance.genruntime
 C:\Development\Insurance\Backend\Insurance\obj\Debug\net8.0\ref\Insurance.dll
 C:\Development\Insurance\Backend\Insurance\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Development\Insurance\Backend\Insurance\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Development\Insurance\Backend\Insurance\bin\Debug\net8.0\AutoMapper.dll
+C:\Development\Insurance\Backend\Insurance\obj\Debug\net8.0\Insurance.sourcelink.json
