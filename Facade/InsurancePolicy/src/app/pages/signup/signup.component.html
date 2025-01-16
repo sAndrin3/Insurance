@@ -1,0 +1,7 @@
+<form [formGroup]="form" (submit)="submit()">
+  <div>
+    <input type="email" name="email" id="email" placeholder="me@mail.com" formControlName="email"/>
+    <input type="password" name="password" id="password" placeholder="*********" formControlName="password"/>
+  </div>
+  <button type="submit">sign up</button>
+</form>

@@ -1,0 +1,41 @@
+<div>
+  {{authUser()?.email}}
+</div>
+<button (click)="signout()">
+  sign out
+</button>
+
+<div>
+  <table>
+    <thead>
+      <th>policyNumber</th>
+      <th>policyholderName</th>
+      <th>policyholderEmail</th>
+      <th>policyholderPhone</th>
+      <th>startDate</th>
+      <th>endDate</th>
+      <th>premiumAmount</th>
+      <th>coverageAmount</th>
+      <th>policyType</th>
+    </thead>
+    <tbody>
+      @for (policy of policies() ?? []; track policy.id) {
+        <tr>
+          <td>{{policy.policyNumber}}</td>
+          <td>{{policy.policyholderName}}</td>
+          <td>{{policy.policyholderEmail}}</td>
+          <td>{{policy.policyholderPhone}}</td>
+          <td>{{policy.startDate}}</td>
+          <td>{{policy.endDate}}</td>
+          <td>{{policy.premiumAmount}}</td>
+          <td>{{policy.coverageAmount}}</td>
+          <td>{{policy.policyType}}</td>
+        </tr>
+      } @empty {
+        <div>
+          No Policies
+        </div>
+      }
+    </tbody>
+  </table>
+</div>
