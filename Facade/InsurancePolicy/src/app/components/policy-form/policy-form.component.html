@@ -1,0 +1,60 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="max-w-screen-sm p-6 mx-auto bg-white rounded-lg shadow-lg">
+    <form class="space-y-6" [formGroup]="form" (submit)="submit()">
+      <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">{{ id() ? 'Edit' : 'Create' }} Policy</h2>
+
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Policy Number</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyNumber" id="policy-number" formControlName="policyNumber"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Policyholder Name</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyholderName" id="policy-holder-name" formControlName="policyholderName"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Policyholder Email</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" name="policyholderEmail" id="policy-holder-email" formControlName="policyholderEmail"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Policyholder Phone</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="tel" name="policyholderPhone" id="policy-holder-phone" formControlName="policyholderPhone"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Start Date</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="startDate" id="start-date" formControlName="startDate"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">End Date</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="endDate" id="end-date" formControlName="endDate"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Premium Amount</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="premiumAmount" id="premium-amount" formControlName="premiumAmount"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Coverage Amount</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="coverageAmount" id="coverage-amount" formControlName="coverageAmount"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="text-sm font-medium text-gray-700">Policy Type</label>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyType" id="policy-type" formControlName="policyType"/>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-4">
+        <a routerLink="/" class="w-full sm:w-auto text-white bg-gray-600 hover:bg-gray-700 py-2 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500" type="button">Cancel</a>
+        <button class="w-full sm:w-auto text-white bg-blue-600 hover:bg-blue-700 py-2 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit"
+                [disabled]="!form.valid">{{ id() ? 'Edit' : 'Create' }} Policy</button>
+      </div>
+    </form>
+  </div>
+</div>

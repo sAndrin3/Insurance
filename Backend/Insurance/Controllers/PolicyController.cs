@@ -76,7 +76,11 @@ public class PolicyController : ControllerBase
                 });
             }
 
-            return Ok(policy);
+            return Ok(new ResponseDto
+            {
+                IsSuccess = true,
+                Result = policy
+            });
         }
         catch (Exception ex)
         {

@@ -2,10 +2,15 @@ import {Component, computed} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {PolicyService} from '../../services/policy.service';
 import {rxResource} from '@angular/core/rxjs-interop';
+import {RouterLink} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [
+    RouterLink,
+    DatePipe
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -23,5 +28,16 @@ export class DashboardComponent {
 
   signout(){
     this.authService.signout()
+  }
+
+  deletePolicy(id: string){
+    this.policyService.delete(id).subscribe({
+      next: () => {
+        this.policiesResource.reload()
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
   }
 }
