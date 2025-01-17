@@ -1,6 +1,8 @@
 <div class="min-h-screen flex items-center justify-center bg-gray-100">
-  <form [formGroup]="form" (submit)="submit()" class="max-w-4xl mx-auto p-16 bg-white rounded-lg shadow-xl space-y-10">
+  <form [formGroup]="form" (submit)="submit()" class="max-w-4xl w-full mx-auto p-16 bg-white rounded-lg shadow-xl space-y-10">
     <div class="space-y-8">
+      <h1 class="text-xl font-bold text-center pb-2">Login to your account</h1>
+      <p>Don't have an account yet? <a routerLink="/signup" class="text-blue-600 font-bold">Sign up</a></p>
       <div>
         <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
         <input
@@ -9,8 +11,12 @@
           id="email"
           placeholder="me@mail.com"
           formControlName="email"
-          class="mt-4 block w-full px-10 py-5 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
+          class="mt-4 block w-full px-10 py-5 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+
+        <div *ngIf="hasError('email')" class="mt-2 text-red-600">
+          {{ getErrorMessage('email') }}
+        </div>
+
       </div>
 
       <div>
@@ -23,6 +29,11 @@
           formControlName="password"
           class="mt-4 block w-full px-10 py-5 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
+
+        <div *ngIf="hasError('password')" class="mt-2 text-red-600">
+          {{ getErrorMessage('password') }}
+        </div>
+
       </div>
     </div>
 

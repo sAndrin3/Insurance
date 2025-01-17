@@ -6,54 +6,95 @@
       <div class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Policy Number</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyNumber" id="policy-number" formControlName="policyNumber"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyNumber" id="policy-number" formControlName="policyNumber"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('policyNumber')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('policyNumber') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Policyholder Name</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyholderName" id="policy-holder-name" formControlName="policyholderName"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyholderName" id="policy-holder-name" formControlName="policyholderName"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('policyholderName')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('policyholderName') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Policyholder Email</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" name="policyholderEmail" id="policy-holder-email" formControlName="policyholderEmail"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" name="policyholderEmail" id="policy-holder-email" formControlName="policyholderEmail"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('policyholderEmail')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('policyholderEmail') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Policyholder Phone</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="tel" name="policyholderPhone" id="policy-holder-phone" formControlName="policyholderPhone"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="tel" name="policyholderPhone" id="policy-holder-phone" formControlName="policyholderPhone"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('policyholderPhone')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('policyholderPhone') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Start Date</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="startDate" id="start-date" formControlName="startDate"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="startDate" id="start-date" formControlName="startDate"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('startDate')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('startDate') }}
+          </div>
         </div>
+
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">End Date</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="endDate" id="end-date" formControlName="endDate"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="date" name="endDate" id="end-date" formControlName="endDate"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('endDate')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('endDate') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Premium Amount</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="premiumAmount" id="premium-amount" formControlName="premiumAmount"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="premiumAmount" id="premium-amount" formControlName="premiumAmount"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('premiumAmount')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('premiumAmount') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Coverage Amount</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="coverageAmount" id="coverage-amount" formControlName="coverageAmount"/>
+          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" name="coverageAmount" id="coverage-amount" formControlName="coverageAmount"
+                 [ngClass]="{'border-red-500': hasError('policyNumber'),'border-gray-300': !(hasError('policyNumber'))}"/>
+          <div *ngIf="getErrorMessage('coverageAmount')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('coverageAmount') }}
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label class="text-sm font-medium text-gray-700">Policy Type</label>
-          <input class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="policyType" id="policy-type" formControlName="policyType"/>
+          <select class="border border-gray-300 p-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  formControlName="policyType">
+            <option value="House Policy">House Policy</option>
+            <option value="Car Policy">Car Policy</option>
+            <option value="Medical Policy">Medical Policy</option>
+          </select>
+          <div *ngIf="getErrorMessage('policyType')" class="text-red-500 text-xs col-span-2 flex justify-end">
+            {{ getErrorMessage('policyType') }}
+          </div>
         </div>
       </div>
 
       <div class="flex justify-center gap-4">
         <a routerLink="/" class="w-full sm:w-auto text-white bg-gray-600 hover:bg-gray-700 py-2 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500" type="button">Cancel</a>
         <button class="w-full sm:w-auto text-white bg-blue-600 hover:bg-blue-700 py-2 px-6 rounded-lg text-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit"
-                [disabled]="!form.valid">{{ id() ? 'Edit' : 'Create' }} Policy</button>
+                >{{ id() ? 'Edit' : 'Create' }} Policy</button>
       </div>
     </form>
   </div>

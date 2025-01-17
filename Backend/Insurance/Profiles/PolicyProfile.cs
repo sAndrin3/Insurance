@@ -4,9 +4,9 @@ using Insurance.Models.Dto;
 
 namespace Insurance.Profiles;
 
-public class ProductProfile : Profile
+public class PolicyProfile : Profile
 {
-    public ProductProfile()
+    public PolicyProfile()
     {
         CreateMap<PolicyRequestDto, Policy>().ReverseMap();
     }
