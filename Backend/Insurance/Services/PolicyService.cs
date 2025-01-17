@@ -20,7 +20,7 @@ public class PolicyService : IPolicyService
 
     public async Task<IEnumerable<Policy>> GetAllPoliciesByUserAsync(string userId)
     {
-        return await _dbContext.Policies.Where(p => p.UserId.Equals(userId)).ToListAsync();
+        return await _dbContext.Policies.Where(p => p.UserId.Equals(userId)).OrderByDescending(p => p.CreatedAt).ToListAsync();
     }
 
     public async Task<Policy?> GetPolicyByIdAsync(Guid id)
