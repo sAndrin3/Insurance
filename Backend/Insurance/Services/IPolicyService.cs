@@ -10,4 +10,5 @@ public interface IPolicyService
     Task<Policy> CreatePolicyAsync(Policy policy);
     Task<Policy> UpdatePolicyAsync(Policy policy);
     Task DeletePolicyAsync(Policy policy);
+    Task<Policy?> GetPolicyByPolicyNumberAsync(string policyNumber);
 }

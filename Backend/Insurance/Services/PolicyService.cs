@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Insurance.Data;
 using Insurance.Models;
 using Microsoft.EntityFrameworkCore;
@@ -7,10 +8,12 @@ namespace Insurance.Services;
 public class PolicyService : IPolicyService
 {
     private readonly AppDbContext _dbContext;
+    private readonly IHttpContextAccessor _httpContextAccessor;
     
-    public PolicyService(AppDbContext dbContext)
+    public PolicyService(AppDbContext dbContext, IHttpContextAccessor httpContextAccessor)
     {
         _dbContext = dbContext;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<IEnumerable<Policy>> GetAllPoliciesAsync()
@@ -46,5 +49,13 @@ public class PolicyService : IPolicyService
     {
         _dbContext.Policies.Remove(policy);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<Policy?> GetPolicyByPolicyNumberAsync(string policyNumber)
+    {
+        var userId = _httpContextAccessor.HttpContext.User.Claims
+            .FirstOrDefault(c => c.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
+        
+        return await _dbContext.Policies.FirstOrDefaultAsync(policy => policy.PolicyNumber.Equals(policyNumber) && policy.UserId.Equals(userId));
     }
 }

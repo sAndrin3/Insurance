@@ -18,8 +18,9 @@ public class AppDbContext : IdentityDbContext<User>
             .HasOne(p => p.User)
             .WithMany(u => u.Policies)
             .HasForeignKey(p => p.UserId);
-
+        
+        builder.Entity<Policy>()
+            .HasIndex(ip => new { ip.PolicyNumber, ip.UserId })
+            .IsUnique();
     }
-    
-    
 }

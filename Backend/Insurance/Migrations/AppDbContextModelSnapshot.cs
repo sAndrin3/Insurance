@@ -70,6 +70,9 @@ namespace Insurance.Migrations
 
                     b.HasIndex("UserId");
 
+                    b.HasIndex("PolicyNumber", "UserId")
+                        .IsUnique();
+
                     b.ToTable("Policies");
                 });
 

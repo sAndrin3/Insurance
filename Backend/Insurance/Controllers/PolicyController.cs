@@ -46,6 +46,13 @@ public class PolicyController : ControllerBase
     {
         try
         {
+            var existingPolicy = await _policyService.GetPolicyByPolicyNumberAsync(policyRequestDto.PolicyNumber);
+
+            if (existingPolicy != null)
+            {
+                return Conflict($"Duplicate Policy number {policyRequestDto.PolicyNumber} found."); 
+            }
+            
             var newPolicy = _mapper.Map<Policy>(policyRequestDto);
             newPolicy.UserId = _httpContextAccessor.HttpContext.User.Claims
                 .FirstOrDefault(c => c.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
@@ -103,6 +110,12 @@ public class PolicyController : ControllerBase
                     IsSuccess = false,
                     Message = "Policy not found"
                 });
+            }
+            var existingPolicyWithPolicyNumber = await _policyService.GetPolicyByPolicyNumberAsync(policyRequestDto.PolicyNumber);
+
+            if (existingPolicyWithPolicyNumber != null && !existingPolicyWithPolicyNumber.Id.Equals(existingPolicy.Id))
+            {
+                return Conflict($"Duplicate Policy number {policyRequestDto.PolicyNumber} found."); 
             }
 
             var updatedPolicy = _mapper.Map(policyRequestDto, existingPolicy);

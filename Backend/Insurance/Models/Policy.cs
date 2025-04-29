@@ -6,9 +6,9 @@ public class Policy
     
     public string PolicyNumber { get; set; } = string.Empty;
     
-    public string PolicyholderName { get; set; } = String.Empty;
+    public string PolicyholderName { get; set; } = string.Empty;
     
-    public string PolicyholderEmail { get; set; } = String.Empty;
+    public string PolicyholderEmail { get; set; } = string.Empty;
     
     public string? PolicyholderPhone { get; set; }
     
@@ -20,7 +20,7 @@ public class Policy
     
     public decimal CoverageAmount { get; set; }
     
-    public string PolicyType { get; set; } = String.Empty;
+    public string PolicyType { get; set; } = string.Empty;
     
     public string UserId { get; set; }
     public User User { get; set; }
