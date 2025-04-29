@@ -24,7 +24,7 @@ export class EditPolicyComponent {
         this.router.navigate(['/']);
       },
       error: error => {
-        console.log(error);
+        this.toastr.error(error.error);
       }
     })
   }
